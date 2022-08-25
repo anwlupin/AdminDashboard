@@ -1,2 +1,2 @@
 # README
-A responsive admin dashboard
+A responsive admin dashboard using ReactJS
