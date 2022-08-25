@@ -1,2 +1,2 @@
-# sushi-concept-website
-A concept website about sushi designed by Freepik
+# README
+A landing page for traditional italian food restaurant designed by Freepik
