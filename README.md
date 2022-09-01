@@ -1,8 +1,8 @@
-# Admin Dashboard Template
+# Admin Dashboard
 
 ## Description
 
-A admin dashboard template using ReactJS, Tailwind Framework and Syncfusion
+A admin dashboard website using ReactJS, Tailwind Framework and Syncfusion
 
 ## Available Scripts\*
 
