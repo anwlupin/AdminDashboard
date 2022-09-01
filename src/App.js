@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { MdOutlineColorLens } from "react-icons/md";
+import { BsPalette } from "react-icons/bs";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
-import { Navbar, SidebarNav } from "./components";
+import {
+  Footer,
+  Header,
+  Navbar,
+  SidebarNav,
+  ThemeSettings,
+} from "./components";
+
 import {
   Calendar,
   ColorPicker,
@@ -17,21 +24,23 @@ import "./App.css";
 
 const App = () => {
   const activePage = true;
+
   return (
-    <div className="App relative flex dark:bg-main-dark-bg">
+    <div className="App">
       <BrowserRouter>
+        {/* //* Theme Settings */}
         <div className="fixed right-4 bottom-4">
           <TooltipComponent content="Settings" position="Top">
             <button
               type="button"
               className="theme-setting-button p-3 text-3xl text-white hover:drop-shadow-xl hover:bg-light-gray "
             >
-              <MdOutlineColorLens />
+              <BsPalette />
             </button>
           </TooltipComponent>
         </div>
 
-        {/*//*Sidebar//*/}
+        {/* //*Right */}
         <div className="sidebar-nav">
           {activePage ? (
             <div className="fixed w-72 bg-white dark:bg-secondary-dark-bg">
@@ -43,6 +52,8 @@ const App = () => {
             </div>
           )}
         </div>
+
+        {/*//* Left */}
         <div
           className={`min-h-screen w-full dark:bg-main-bg bg-main-bg ${
             activePage ? "md:ml-72" : "flex-2"
