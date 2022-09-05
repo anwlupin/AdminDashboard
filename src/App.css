@@ -1,18 +1,19 @@
 @import url("https://cdn.syncfusion.com/ej2/material.css");
 
-.theme-setting0button {
+.header {
+  z-index: 10000;
+}
+
+.theme-setting-button {
   background: blue;
   border-radius: 50%;
 }
 
 .sidebar-nav {
-  padding: 0;
-  box-shadow: rgb(113 122 131 / 11%) 0 0.7px 3rem 0;
+  z-index: 9999;
+  box-shadow: rgb(113 122 131 / 11%) 0 0px 0.5rem 0;
 }
-.nav-item,
-.navbar {
-  z-index: 10000;
-}
+
 @media screen and (max-width: 800px) {
   .sidebar-nav {
     z-index: 10000000;
