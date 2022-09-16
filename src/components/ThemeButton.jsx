@@ -7,8 +7,8 @@ const ThemeButton = () => {
     <div className="fixed right-4 bottom-4">
       <TooltipComponent content="Settings" position="Top">
         <button
-          type="button"
           className="theme-setting-button p-3 text-3xl text-white hover:drop-shadow-xl hover:bg-light-gray "
+          type="button"
         >
           <BsPalette />
         </button>

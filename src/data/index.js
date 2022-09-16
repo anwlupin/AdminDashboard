@@ -3,14 +3,49 @@ import { SiWebmoney } from "react-icons/si";
 import {
   BsPeople,
   BsHandbag,
-  BsCart3,
+  BsReceipt,
   BsTruck,
   BsPencilSquare,
   BsCalendar2Event,
   BsPaintBucket,
+  BsCart3,
+  BsChatLeft,
+  BsBell,
 } from "react-icons/bs";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
-export const links = [
+export const colors = {
+  primary: "#003f5c",
+  darkPrimary: "#fff",
+  badge: "#0DB0DD",
+};
+
+export const icons = {
+  arrowDown: (attr) => <MdKeyboardArrowDown className={attr} />,
+};
+
+export const navbarLinks = [
+  {
+    name: "cart",
+    path: "/checkout/cart",
+    icon: <BsCart3 />,
+    color: colors.primary,
+  },
+  {
+    name: "chat",
+    path: "/chat",
+    icon: <BsChatLeft />,
+    color: colors.primary,
+  },
+  {
+    name: "notifications",
+    path: "/notifications",
+    icon: <BsBell />,
+    color: colors.primary,
+  },
+];
+
+export const sidebarLinks = [
   {
     category: "Dashboard",
     list: [
@@ -37,7 +72,7 @@ export const links = [
       {
         name: "orders",
         path: "/orders",
-        icon: <BsCart3 />,
+        icon: <BsReceipt />,
       },
       {
         name: "delivery",

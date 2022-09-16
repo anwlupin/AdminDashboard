@@ -7,6 +7,7 @@ import { useStateContext } from "../contexts/ContextProvider";
 
 const Logo = () => {
   const { activeSidebar, setActiveSidebar } = useStateContext();
+  console.log("activeSidebar is set to " + activeSidebar);
 
   return (
     <>
@@ -14,8 +15,8 @@ const Logo = () => {
       <div className="ml-3">
         <TooltipComponent content="Menu">
           <button
-            type="button"
             className="p-2 text-xl rounded-full hover:bg-light-gray"
+            type="button"
             onClick={() => {
               setActiveSidebar((prev) => !prev);
             }}
@@ -26,11 +27,8 @@ const Logo = () => {
       </div>
       {/* //* Logo */}
       <Link
+        className="flex items-center gap-3 ml-3 font-extrabold tracking tight "
         to="/"
-        className="flex items-center w-72 gap-3 ml-3 font-extrabold tracking tight"
-        onClick={() => {
-          setActiveSidebar(false);
-        }}
       >
         <SiReact /> <span>Logo</span>
       </Link>

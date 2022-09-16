@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarNav, ThemeButton } from "./components";
 import { Header } from "./containers";
@@ -22,14 +22,14 @@ const App = () => {
         <ThemeButton />
         <Header />
 
-        <div className="flex mt-10 bg-main-bg dark:bg-main-bg">
+        <div className="flex pt-12 bg-main-bg dark:bg-main-bg">
           {/* //*Left */}
           <SidebarNav />
 
           {/*//* Right */}
           <div
-            className={`min-h-screen w-full py-12 ${
-              activeSidebar ? " pl-64" : " px-16"
+            className={`min-h-screen w-full py-12${
+              activeSidebar ? " pl-64" : " pl-16"
             }`}
           >
             <Routes>

@@ -1,12 +1,12 @@
 @import url("https://cdn.syncfusion.com/ej2/material.css");
 
-.header {
-  z-index: 10000;
-}
-
 .theme-setting-button {
   background: blue;
   border-radius: 50%;
+}
+
+.header {
+  z-index: 10000;
 }
 
 .sidebar-nav {
