@@ -11,8 +11,7 @@ const Logo = () => {
 
   return (
     <>
-      {/* //* Sidebar Switcher */}
-      <div className="ml-3">
+      <div className="sidebar-switcher ml-3">
         <TooltipComponent content="Menu">
           <button
             className="p-2 text-xl rounded-full hover:bg-light-gray"
@@ -25,9 +24,8 @@ const Logo = () => {
           </button>
         </TooltipComponent>
       </div>
-      {/* //* Logo */}
       <Link
-        className="flex items-center gap-3 ml-3 font-extrabold tracking tight "
+        className="logo flex items-center gap-3 ml-3 font-extrabold tracking tight "
         to="/"
       >
         <SiReact /> <span>Logo</span>

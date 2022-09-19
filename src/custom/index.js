@@ -102,3 +102,12 @@ export const sidebarLinks = [
     ],
   },
 ];
+
+export const dummy = {
+  avatar: [
+    "/assets/avatar1.jpg",
+    "/assets/avatar2.jpg",
+    "/assets/avatar3.jpg",
+    "/assets/avatar4.jpg",
+  ],
+};

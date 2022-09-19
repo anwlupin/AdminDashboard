@@ -2,7 +2,7 @@ import React from "react";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "../contexts/ContextProvider";
 import { Cart, Chat, Notifications, UserProfile } from ".";
-import { navbarLinks, colors, icons } from "../data";
+import { navbarLinks, colors, icons, dummy } from "../custom";
 
 const NavItem = ({ name, handle, icon, color, badge }) => (
   <TooltipComponent content={name} position="BottomCenter">
@@ -27,9 +27,9 @@ const ProfilePicture = () => (
       className="flex items-center gap-1 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
       onClick={() => {}}
     >
-      <img className="rounded-full w-8 h-8" src="/assets/avatar1.jpg" alt="" />
+      <img className="rounded-full w-8 h-8" src={dummy.avatar[0]} alt="" />
       <p className="text-sm text-gray-400">
-        Hi, <span className="font-bold">Auguste</span>
+        Hi, <span className="font-bold">Lupin</span>
       </p>
       {icons.arrowDown("text-xl text-gray-400")}
     </div>

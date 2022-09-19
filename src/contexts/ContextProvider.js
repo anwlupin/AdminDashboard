@@ -25,9 +25,9 @@ export const ContextProvider = ({ children, ...extraProps }) => {
         setActiveSidebar,
         activeNavItem,
         setNavItem,
-        handleClick,
         screenSize,
         setScreenSize,
+        handleClick,
       }}
       {...extraProps}
     >

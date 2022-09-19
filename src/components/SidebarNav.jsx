@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { sidebarLinks } from "../data/index";
 import { useStateContext } from "../contexts/ContextProvider";
+import { sidebarLinks } from "../custom";
 
 const SidebarNav = () => {
   const { activeSidebar, setActiveSidebar, screenSize, setScreenSize } =
