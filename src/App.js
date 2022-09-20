@@ -1,16 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useStateContext } from "./contexts/ContextProvider";
 import { SidebarNav, ThemeButton } from "./components";
 import { Header } from "./containers";
-import {
-  Calendar,
-  ColorPicker,
-  Delivery,
-  Orders,
-  Products,
-  Users,
-} from "./pages";
-import { useStateContext } from "./contexts/ContextProvider";
+import { ECommerce } from "./pages";
+
 import "./App.css";
 
 const App = () => {
@@ -28,35 +22,35 @@ const App = () => {
 
           {/*//* Right */}
           <div
-            className={`min-h-screen w-full py-12${
+            className={`min-h-screen w-full py-12 pr-16${
               activeSidebar ? " pl-64" : " pl-16"
             }`}
           >
             <Routes>
               {/* Dashboard */}
-              <Route path="/" element="ECommerce" />
-              <Route path="/ecommerce" element="ECommerce" />
+              <Route path="/" element={<ECommerce />} />
+              <Route path="/ecommerce" element={<ECommerce />} />
 
               {/* Pages */}
               <Route path="/users">
-                <Route index element={<Users />} />
+                <Route index element="User" />
                 <Route path=":userId" element="UserInfo" />
                 <Route path="new" element="NewUser" />
               </Route>
               <Route path="/products">
-                <Route index element={<Products />} />
+                <Route index element="Products" />
                 <Route path=":productId" element="ProductInfo" />
                 <Route path="new" element="NewProduct" />
               </Route>
-              <Route path="/orders" element={<Orders />} />
-              <Route path="/delivery" element={<Delivery />} />
+              <Route path="/orders" element="Orders" />
+              <Route path="/delivery" element="Delivery" />
 
               {/* Apps */}
               <Route path="/apps">
                 <Route index element="Apps" />
                 <Route path="editor" element="Editor" />
-                <Route path="calendar" element={<Calendar />} />
-                <Route path="color-picker" element={<ColorPicker />} />
+                <Route path="calendar" element="Calendar" />
+                <Route path="color-picker" element="ColorPicker" />
               </Route>
 
               {/* Charts */}

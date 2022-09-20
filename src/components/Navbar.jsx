@@ -1,8 +1,7 @@
 import React from "react";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "../contexts/ContextProvider";
-import { Cart, Chat, Notifications, UserProfile } from ".";
-import { navbarLinks, colors, icons, dummy } from "../custom";
+import { colors, icons, navbarLinks, dummy } from "../custom";
 
 const NavItem = ({ name, handle, icon, color, badge }) => (
   <TooltipComponent content={name} position="BottomCenter">
@@ -53,10 +52,10 @@ const NavBar = () => {
       ))}
       <ProfilePicture />
 
-      {activeNavItem.cart && <Cart />}
-      {activeNavItem.chat && <Chat />}
-      {activeNavItem.notifications && <Notifications />}
-      {activeNavItem.userProfile && <UserProfile />}
+      {activeNavItem.cart && "<Cart />"}
+      {activeNavItem.chat && "<Chat />"}
+      {activeNavItem.notifications && "<Notifications />"}
+      {activeNavItem.userProfile && "<UserProfile />"}
     </nav>
   );
 };

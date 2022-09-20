@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import { useStateContext } from "../contexts/ContextProvider";
 import { SiReact } from "react-icons/si";
 import { BsList } from "react-icons/bs";
-import { useStateContext } from "../contexts/ContextProvider";
 
 const Logo = () => {
   const { activeSidebar, setActiveSidebar } = useStateContext();
