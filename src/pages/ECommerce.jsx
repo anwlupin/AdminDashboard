@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, BarChart, Sparkline } from "../components";
-import { colors, icons, earningData } from "../custom";
+import { colors, icons, earningConfig } from "../custom";
 
 const ECommerce = () => {
   return (
@@ -11,7 +11,7 @@ const ECommerce = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold">Earnings</p>
-              <p className="text-2xl">${earningData.total}</p>
+              <p className="text-2xl">${earningConfig.total}</p>
             </div>
           </div>
           <div className="mt-6">
@@ -27,7 +27,7 @@ const ECommerce = () => {
 
         {/* Earning Stats */}
         <div className="flex flex-wrap justify-center items-center gap-1 m-3">
-          {earningData.stats.map((item) => (
+          {earningConfig.stats.map((item) => (
             <div
               key={item.name}
               className="md:w-56 p-4 rounded-2xl bg-white dark:text-gray-200 dark:bg-secondary-dark-bg"
@@ -77,7 +77,7 @@ const ECommerce = () => {
               <div>
                 <p>
                   <span className="font-semibold text-3xl">
-                    ${earningData.budget}
+                    ${earningConfig.budget}
                   </span>
                   <span className="ml-3 p-1.5 rounded-full text-xs text-white bg-green-400 cursor-pointer hover:drop-shadow-xl">
                     12%
@@ -88,7 +88,7 @@ const ECommerce = () => {
               <div className="mt-8">
                 <p>
                   <span className="font-semibold text-3xl">
-                    ${earningData.expense}
+                    ${earningConfig.expense}
                   </span>
                 </p>
                 <p className="mt-1 text-gray-500">Expense</p>

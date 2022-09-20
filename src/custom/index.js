@@ -21,6 +21,7 @@ import {
 } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
 import { GoPrimitiveDot } from "react-icons/go";
+import { products, orders } from "./dummy";
 
 export const colors = {
   badge: "#0DB0DD", // Battery Charged Blue
@@ -112,7 +113,7 @@ export const sidebarLinks = [
   },
 ];
 
-export const earningData = {
+export const earningConfig = {
   total: "98,765.43",
   budget: "76,543.21",
   expense: "12,345.67",
@@ -172,7 +173,7 @@ export const earningData = {
   ],
 };
 
-export const sparklineData = {
+export const sparklineConfig = {
   id: "line-sparkline",
   type: "Line",
   valueType: "Numeric",
@@ -201,7 +202,7 @@ export const sparklineData = {
   },
 };
 
-export const barChartData = {
+export const barChartConfig = {
   id: "charts",
   width: "560px",
   height: "360px",
@@ -274,11 +275,73 @@ export const barChartData = {
   legendSettings: { background: "white" },
 };
 
-export const dummy = {
-  avatar: [
-    "/assets/avatar1.jpg",
-    "/assets/avatar2.jpg",
-    "/assets/avatar3.jpg",
-    "/assets/avatar4.jpg",
+const gridImage = (props) => (
+  <div className="flex">
+    {props.productImage.map((item, index) => (
+      <img
+        key={index}
+        className="rounded-xl h-20 md:ml-3"
+        src={item}
+        alt="order-item"
+      />
+    ))}
+  </div>
+);
+
+export const ordersConfig = {
+  grid: [
+    {
+      width: "50",
+      textAlign: "Center",
+      headerText: "ID",
+      field: "id",
+    },
+    {
+      width: "70",
+      textAlign: "Left",
+      headerText: "Customer Name",
+      field: "customerName",
+    },
+    {
+      width: "250",
+      textAlign: "Left",
+      headerText: "Items",
+      template: gridImage,
+    },
+    {
+      width: "60",
+      textAlign: "Center",
+      format: "C2",
+      editType: "numericedit",
+      field: "total",
+      headerText: "Total Amount",
+    },
+    {
+      width: "90",
+      textAlign: "Center",
+      format: "C2",
+      editType: "numericedit",
+      field: "discountedTotal",
+      headerText: "Discounted Amount",
+    },
+    {
+      width: "60",
+      textAlign: "Center",
+      editType: "numericedit",
+      field: "totalProducts",
+      headerText: "Total Products",
+    },
+    {
+      width: "60",
+      textAlign: "Center",
+      editType: "numericedit",
+      field: "totalQuantity",
+      headerText: "Total Quantity",
+    },
   ],
 };
+
+// fetch("https://dummyjson.com/users")
+//   .then((res) => res.json())
+//   .then(JSON.stringify)
+//   .then(console.log);

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useStateContext } from "./contexts/ContextProvider";
 import { SidebarNav, ThemeButton } from "./components";
 import { Header } from "./containers";
-import { ECommerce } from "./pages";
+import { ECommerce, Orders } from "./pages";
 
 import "./App.css";
 
@@ -42,7 +42,7 @@ const App = () => {
                 <Route path=":productId" element="ProductInfo" />
                 <Route path="new" element="NewProduct" />
               </Route>
-              <Route path="/orders" element="Orders" />
+              <Route path="/orders" element={<Orders />} />
               <Route path="/delivery" element="Delivery" />
 
               {/* Apps */}

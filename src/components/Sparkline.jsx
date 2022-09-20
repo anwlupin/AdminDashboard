@@ -4,23 +4,23 @@ import {
   Inject,
   SparklineTooltip,
 } from "@syncfusion/ej2-react-charts";
-import { sparklineData } from "../custom";
+import { sparklineConfig } from "../custom";
 
 const Sparkline = () => {
   return (
     <SparklineComponent
-      id={sparklineData.id}
-      type={sparklineData.type}
-      valueType={sparklineData.valueType}
-      width={sparklineData.width}
-      height={sparklineData.height}
-      lineWidth={sparklineData.lineWidth}
-      fill={sparklineData.filLColor}
-      border={sparklineData.border}
-      xName={sparklineData.xName}
-      yName={sparklineData.yName}
-      dataSource={sparklineData.coordinates}
-      tooltipSettings={sparklineData.tooltipSettings}
+      id={sparklineConfig.id}
+      type={sparklineConfig.type}
+      valueType={sparklineConfig.valueType}
+      width={sparklineConfig.width}
+      height={sparklineConfig.height}
+      lineWidth={sparklineConfig.lineWidth}
+      fill={sparklineConfig.filLColor}
+      border={sparklineConfig.border}
+      xName={sparklineConfig.xName}
+      yName={sparklineConfig.yName}
+      dataSource={sparklineConfig.coordinates}
+      tooltipSettings={sparklineConfig.tooltipSettings}
     >
       <Inject services={[SparklineTooltip]} />
     </SparklineComponent>
