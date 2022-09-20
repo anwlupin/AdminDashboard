@@ -113,7 +113,9 @@ export const sidebarLinks = [
 ];
 
 export const earningData = {
-  total: "",
+  total: "98,765.43",
+  budget: "76,543.21",
+  expense: "12,345.67",
   stats: [
     {
       name: "Customers",
