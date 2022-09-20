@@ -195,6 +195,7 @@ export const sparklineData = {
   ],
   tooltipSettings: {
     visible: true,
+    // eslint-disable-next-line no-template-curly-in-string
     format: "${x} : data ${y}",
     trackLineSettings: { visible: true },
   },
