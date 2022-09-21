@@ -1,5 +1,4 @@
 import React from "react";
-import { SiWebmoney } from "react-icons/si";
 import {
   BsPeople,
   BsHandbag,
@@ -14,14 +13,24 @@ import {
   BsCurrencyDollar,
   BsBoxSeam,
 } from "react-icons/bs";
+import { FcShipped } from "react-icons/fc";
+import { GoPrimitiveDot } from "react-icons/go";
+import {
+  HiOutlineClock,
+  HiOutlineTruck,
+  HiOutlineMinusCircle,
+  HiOutlineExclamationCircle,
+} from "react-icons/hi";
 import {
   MdKeyboardArrowDown,
   MdOutlineSupervisorAccount,
   MdOutlinePointOfSale,
+  MdOutlinePending,
+  MdOutlineCheckCircleOutline,
+  MdOutlineCancel,
 } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
-import { GoPrimitiveDot } from "react-icons/go";
-import { products, orders } from "./dummy";
+import { SiWebmoney } from "react-icons/si";
 
 export const colors = {
   badge: "#0DB0DD", // Battery Charged Blue
@@ -275,7 +284,7 @@ export const barChartConfig = {
   legendSettings: { background: "white" },
 };
 
-const gridImage = (props) => (
+const orderImage = (props) => (
   <div className="flex">
     {props.productImage.map((item, index) => (
       <img
@@ -288,6 +297,56 @@ const gridImage = (props) => (
   </div>
 );
 
+const orderStatus = (props) => {
+  const status = {
+    pending: {
+      color: "#FFB300",
+      icon: <HiOutlineClock />,
+    },
+    shipped: {
+      color: "#52D600",
+      icon: <HiOutlineTruck />,
+    },
+    processing: {
+      color: "#A1D600",
+      icon: <MdOutlinePending />,
+    },
+    onHold: {
+      color: "#595A58",
+      icon: <HiOutlineMinusCircle />,
+    },
+    completed: {
+      color: "#00D5E8",
+      icon: <MdOutlineCheckCircleOutline />,
+    },
+    cancelled: {
+      color: "#FF0000",
+      icon: <MdOutlineCancel />,
+    },
+    refunded: {
+      color: "#B8A898",
+      icon: <RiRefund2Line />,
+    },
+    failed: {
+      color: "#FFF42B",
+      icon: <HiOutlineExclamationCircle />,
+    },
+  };
+
+  return (
+    <div
+      className="flex justify-center items-center gap-1 border-solid border-2 rounded-full p-1"
+      style={{
+        color: status[props.status].color,
+        borderColor: status[props.status].color,
+      }}
+    >
+      <span className="text-lg">{status[props.status].icon}</span>
+      <span className="capitalize">{props.status}</span>
+    </div>
+  );
+};
+
 export const ordersConfig = {
   grid: [
     {
@@ -297,16 +356,22 @@ export const ordersConfig = {
       field: "id",
     },
     {
-      width: "70",
-      textAlign: "Left",
+      width: "250",
+      textAlign: "Center",
+      headerText: "Items",
+      template: orderImage,
+    },
+    {
+      width: "90",
+      textAlign: "Center",
       headerText: "Customer Name",
       field: "customerName",
     },
     {
-      width: "250",
-      textAlign: "Left",
-      headerText: "Items",
-      template: gridImage,
+      width: "60",
+      textAlign: "Center",
+      headerText: "Status",
+      template: orderStatus,
     },
     {
       width: "60",
@@ -323,20 +388,6 @@ export const ordersConfig = {
       editType: "numericedit",
       field: "discountedTotal",
       headerText: "Discounted Amount",
-    },
-    {
-      width: "60",
-      textAlign: "Center",
-      editType: "numericedit",
-      field: "totalProducts",
-      headerText: "Total Products",
-    },
-    {
-      width: "60",
-      textAlign: "Center",
-      editType: "numericedit",
-      field: "totalQuantity",
-      headerText: "Total Quantity",
     },
   ],
 };

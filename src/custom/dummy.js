@@ -2178,7 +2178,7 @@ const orders = [
       { id: 15, quantity: 1 },
       { id: 19, quantity: 2 },
     ],
-    totalQuantity: 10,
+    status: "pending",
   },
   {
     id: 2,
@@ -2190,7 +2190,7 @@ const orders = [
       { id: 16, quantity: 1 },
       { id: 14, quantity: 3 },
     ],
-    totalQuantity: 10,
+    status: "shipped",
   },
   {
     id: 3,
@@ -2202,7 +2202,7 @@ const orders = [
       { id: 21, quantity: 1 },
       { id: 10, quantity: 1 },
     ],
-    totalQuantity: 10,
+    status: "processing",
   },
   {
     id: 4,
@@ -2214,7 +2214,7 @@ const orders = [
       { id: 27, quantity: 2 },
       { id: 24, quantity: 3 },
     ],
-    totalQuantity: 10,
+    status: "onHold",
   },
   {
     id: 5,
@@ -2226,6 +2226,7 @@ const orders = [
       { id: 24, quantity: 1 },
       { id: 14, quantity: 3 },
     ],
+    status: "completed",
   },
   {
     id: 6,
@@ -2237,6 +2238,7 @@ const orders = [
       { id: 27, quantity: 3 },
       { id: 17, quantity: 3 },
     ],
+    status: "cancelled",
   },
   {
     id: 7,
@@ -2248,6 +2250,7 @@ const orders = [
       { id: 5, quantity: 1 },
       { id: 4, quantity: 3 },
     ],
+    status: "refunded",
   },
   {
     id: 8,
@@ -2259,6 +2262,7 @@ const orders = [
       { id: 21, quantity: 3 },
       { id: 2, quantity: 1 },
     ],
+    status: "failed",
   },
   {
     id: 9,
@@ -2270,6 +2274,7 @@ const orders = [
       { id: 5, quantity: 1 },
       { id: 13, quantity: 1 },
     ],
+    status: "pending",
   },
   {
     id: 10,
@@ -2281,6 +2286,7 @@ const orders = [
       { id: 17, quantity: 1 },
       { id: 9, quantity: 3 },
     ],
+    status: "pending",
   },
   {
     id: 11,
@@ -2292,6 +2298,7 @@ const orders = [
       { id: 8, quantity: 1 },
       { id: 12, quantity: 3 },
     ],
+    status: "pending",
   },
   {
     id: 12,
@@ -2303,6 +2310,7 @@ const orders = [
       { id: 9, quantity: 3 },
       { id: 27, quantity: 2 },
     ],
+    status: "pending",
   },
   {
     id: 13,
@@ -2314,6 +2322,7 @@ const orders = [
       { id: 6, quantity: 2 },
       { id: 4, quantity: 1 },
     ],
+    status: "pending",
   },
   {
     id: 14,
@@ -2325,6 +2334,7 @@ const orders = [
       { id: 8, quantity: 1 },
       { id: 4, quantity: 2 },
     ],
+    status: "pending",
   },
   {
     id: 15,
@@ -2336,6 +2346,7 @@ const orders = [
       { id: 8, quantity: 3 },
       { id: 22, quantity: 3 },
     ],
+    status: "pending",
   },
   {
     id: 16,
@@ -2347,6 +2358,7 @@ const orders = [
       { id: 16, quantity: 1 },
       { id: 12, quantity: 1 },
     ],
+    status: "pending",
   },
   {
     id: 17,
@@ -2358,6 +2370,7 @@ const orders = [
       { id: 9, quantity: 1 },
       { id: 7, quantity: 1 },
     ],
+    status: "pending",
   },
   {
     id: 18,
@@ -2369,6 +2382,7 @@ const orders = [
       { id: 18, quantity: 2 },
       { id: 13, quantity: 1 },
     ],
+    status: "pending",
   },
   {
     id: 19,
@@ -2380,6 +2394,7 @@ const orders = [
       { id: 30, quantity: 2 },
       { id: 25, quantity: 3 },
     ],
+    status: "pending",
   },
   {
     id: 20,
@@ -2391,6 +2406,7 @@ const orders = [
       { id: 2, quantity: 1 },
       { id: 4, quantity: 2 },
     ],
+    status: "pending",
   },
 ];
 
@@ -2398,11 +2414,12 @@ let dummyOrders = [];
 for (let i = 0; i < orders.length; i++) {
   dummyOrders.push({
     id: orders[i].id,
+    productImage: orders[i].products.map((e) => products[e.id - 1].images[0]),
     customerName: [
       users[orders[i].userId - 1].firstName,
       users[orders[i].userId - 1].lastName,
     ].join(" "),
-    productImage: orders[i].products.map((e) => products[e.id - 1].thumbnail),
+    status: orders[i].status,
     total: orders[i].products
       .map((e) => products[e.id - 1].price)
       .reduce((prev, curr) => prev + curr, 0),
