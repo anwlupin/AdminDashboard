@@ -14,7 +14,7 @@ import {
   BsBoxSeam,
 } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
-import { GrLocation } from "react-icons/gr";
+import { GrLocation, GrTask } from "react-icons/gr";
 import {
   HiOutlineClock,
   HiOutlineTruck,
@@ -23,11 +23,11 @@ import {
 } from "react-icons/hi";
 import {
   MdKeyboardArrowDown,
-  MdOutlineSupervisorAccount,
-  MdOutlinePointOfSale,
-  MdOutlinePending,
-  MdOutlineCheckCircleOutline,
   MdOutlineCancel,
+  MdOutlineCheckCircleOutline,
+  MdOutlineSupervisorAccount,
+  MdOutlinePending,
+  MdOutlinePointOfSale,
 } from "react-icons/md";
 import { RiRefund2Line } from "react-icons/ri";
 import { SiWebmoney } from "react-icons/si";
@@ -198,6 +198,11 @@ export const sidebarLinks = [
         name: "calendar",
         path: "/apps/calendar",
         icon: <BsCalendar2Event />,
+      },
+      {
+        name: "To-Do List",
+        path: "/apps/todo-list",
+        icon: <GrTask />,
       },
       {
         name: "color-picker",
@@ -435,6 +440,20 @@ export const productsConfig = {
       headerText: "Brand",
       field: "brand",
     },
+  ],
+};
+
+export const kanbanConfig = {
+  grid: [
+    { headerText: "To Do", keyField: "Open", allowToggle: true },
+    { headerText: "In Progress", keyField: "InProgress", allowToggle: true },
+    {
+      headerText: "Testing",
+      keyField: "Testing",
+      allowToggle: true,
+      isExpanded: false,
+    },
+    { headerText: "Done", keyField: "Close", allowToggle: true },
   ],
 };
 //* END OF CONFIG

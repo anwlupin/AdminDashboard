@@ -10,12 +10,13 @@ import {
 } from "@syncfusion/ej2-react-grids";
 import { Grid, Heading } from "../components";
 import { usersConfig } from "../config";
-import dummy from "../config/dummy";
+
+import dummy from "../config/dummy"; //! dummy
 
 const Users = () => {
   return (
     <div className="md:p-8 p-5 rounded-3xl bg-white">
-      <Heading category="Page" title={"Heading"} />
+      <Heading category="Page" title="Heading" />
       <Grid
         title="Users"
         dataSrc={dummy.users}

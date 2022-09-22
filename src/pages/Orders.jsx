@@ -11,12 +11,13 @@ import {
 } from "@syncfusion/ej2-react-grids";
 import { Grid, Heading } from "../components";
 import { ordersConfig } from "../config";
-import dummy from "../config/dummy";
+
+import dummy from "../config/dummy"; //! dummy
 
 const Orders = () => {
   return (
     <div className="md:p-8 p-5 rounded-3xl bg-white">
-      <Heading category="Page" title={"Orders"} />
+      <Heading category="Page" title="Orders" />
       <Grid
         id="gridcomp"
         dataSrc={dummy.orders}

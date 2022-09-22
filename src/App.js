@@ -3,7 +3,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useStateContext } from "./contexts/ContextProvider";
 import { SidebarNav, ThemeButton } from "./components";
 import { Header } from "./containers";
-import { ECommerce, Orders, Products, Users } from "./pages";
+import {
+  Calendar,
+  Editor,
+  ECommerce,
+  Orders,
+  ToDoList,
+  Products,
+  Users,
+} from "./pages";
 
 import "./App.css";
 
@@ -48,8 +56,9 @@ const App = () => {
               {/* Apps */}
               <Route path="/apps">
                 <Route index element="Apps" />
-                <Route path="editor" element="Editor" />
-                <Route path="calendar" element="Calendar" />
+                <Route path="editor" element={<Editor />} />
+                <Route path="calendar" element={<Calendar />} />
+                <Route path="todo-list" element={<ToDoList />} />
                 <Route path="color-picker" element="ColorPicker" />
               </Route>
 

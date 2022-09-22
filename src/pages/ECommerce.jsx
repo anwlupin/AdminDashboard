@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, BarChart, Sparkline } from "../components";
 import { colors, icons, earningConfig } from "../config";
-import dummy from "../config/dummy";
+
+import dummy from "../config/dummy"; //! dummy
 
 const ECommerce = () => {
   return (
