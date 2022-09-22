@@ -9,7 +9,9 @@ import {
   StackingColumnSeries,
   Tooltip,
 } from "@syncfusion/ej2-react-charts";
-import { barChartConfig } from "../custom";
+import { barChartConfig } from "../config";
+
+import dummy from "../config/dummy"; //! dummy
 
 const BarChart = () => {
   return (
@@ -25,7 +27,7 @@ const BarChart = () => {
     >
       <Inject services={[Legend, Category, StackingColumnSeries, Tooltip]} />
       <SeriesCollectionDirective>
-        {barChartConfig.series.map((item, index) => (
+        {dummy.barChartSeries.map((item, index) => (
           <SeriesDirective key={index} {...item} />
         ))}
       </SeriesCollectionDirective>

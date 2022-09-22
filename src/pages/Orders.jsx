@@ -14,8 +14,8 @@ import {
   Inject,
 } from "@syncfusion/ej2-react-grids";
 import { Heading } from "../components";
-import { ordersConfig } from "../custom";
-import dummy from "../custom/dummy";
+import { ordersConfig } from "../config";
+import dummy from "../config/dummy";
 
 const Orders = () => {
   return (

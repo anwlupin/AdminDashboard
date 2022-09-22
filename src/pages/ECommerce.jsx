@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, BarChart, Sparkline } from "../components";
-import { colors, icons, earningConfig } from "../custom";
+import { colors, icons, earningConfig } from "../config";
+import dummy from "../config/dummy";
 
 const ECommerce = () => {
   return (
@@ -11,7 +12,7 @@ const ECommerce = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold">Earnings</p>
-              <p className="text-2xl">${earningConfig.total}</p>
+              <p className="text-2xl">${dummy.earning.total}</p>
             </div>
           </div>
           <div className="mt-6">
@@ -30,7 +31,7 @@ const ECommerce = () => {
           {earningConfig.stats.map((item) => (
             <div
               key={item.name}
-              className="md:w-56 p-4 rounded-2xl bg-white dark:text-gray-200 dark:bg-secondary-dark-bg"
+              className="md:w-56 p-4 rounded-2xl bg-white dark:text-gray-200 dark:bg-secondary-dark-bg capitalize"
             >
               <button
                 className="p-4 opacity-0.9 rounded-full text-2xl hover:drop-shadow-xl"
@@ -44,10 +45,10 @@ const ECommerce = () => {
               </button>
               <p className="mt-3">
                 <span className="text-lg font-semibold">
-                  {item.data.amount}
+                  {dummy.earning[item.name].amount}
                 </span>
                 <span className={`ml-2 text-sm text-${item.style.pcColor}`}>
-                  {item.data.percentage}
+                  {dummy.earning[item.name].percentage}
                 </span>
               </p>
               <p className="text-sm text-gray-400 mt-1">{item.name}</p>
@@ -77,10 +78,10 @@ const ECommerce = () => {
               <div>
                 <p>
                   <span className="font-semibold text-3xl">
-                    ${earningConfig.budget}
+                    ${dummy.earning.budget}
                   </span>
                   <span className="ml-3 p-1.5 rounded-full text-xs text-white bg-green-400 cursor-pointer hover:drop-shadow-xl">
-                    12%
+                    {dummy.earning.percentage}
                   </span>
                 </p>
                 <p className="mt-1 text-gray-500">Budget</p>
@@ -88,7 +89,7 @@ const ECommerce = () => {
               <div className="mt-8">
                 <p>
                   <span className="font-semibold text-3xl">
-                    ${earningConfig.expense}
+                    ${dummy.earning.expense}
                   </span>
                 </p>
                 <p className="mt-1 text-gray-500">Expense</p>

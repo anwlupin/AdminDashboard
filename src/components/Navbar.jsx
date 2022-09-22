@@ -1,8 +1,9 @@
 import React from "react";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { useStateContext } from "../contexts/ContextProvider";
-import { colors, icons, navbarLinks } from "../custom";
-import dummy from "../custom/dummy";
+import { colors, icons, navbarLinks } from "../config";
+
+import dummy from "../config/dummy"; //! dummy
 
 const NavItem = ({ name, handle, icon, color, badge }) => (
   <TooltipComponent content={name} position="BottomCenter">

@@ -13,8 +13,8 @@ import {
   BsCurrencyDollar,
   BsBoxSeam,
 } from "react-icons/bs";
-import { FcShipped } from "react-icons/fc";
 import { GoPrimitiveDot } from "react-icons/go";
+import { GrLocation } from "react-icons/gr";
 import {
   HiOutlineClock,
   HiOutlineTruck,
@@ -32,6 +32,86 @@ import {
 import { RiRefund2Line } from "react-icons/ri";
 import { SiWebmoney } from "react-icons/si";
 
+//* JSX
+const gridOrderImage = (props) => (
+  <div className="flex">
+    {props.productImage.map((item, index) => (
+      <img
+        key={index}
+        className="rounded-xl h-20 md:ml-3"
+        src={item}
+        alt="order-item"
+      />
+    ))}
+  </div>
+);
+
+const gridOrderStatus = (props) => {
+  const status = {
+    pending: {
+      color: "#FFB300",
+      icon: <HiOutlineClock />,
+    },
+    shipped: {
+      color: "#52D600",
+      icon: <HiOutlineTruck />,
+    },
+    processing: {
+      color: "#A1D600",
+      icon: <MdOutlinePending />,
+    },
+    onHold: {
+      color: "#595A58",
+      icon: <HiOutlineMinusCircle />,
+    },
+    completed: {
+      color: "#00D5E8",
+      icon: <MdOutlineCheckCircleOutline />,
+    },
+    cancelled: {
+      color: "#FF0000",
+      icon: <MdOutlineCancel />,
+    },
+    refunded: {
+      color: "#B8A898",
+      icon: <RiRefund2Line />,
+    },
+    failed: {
+      color: "#FFF42B",
+      icon: <HiOutlineExclamationCircle />,
+    },
+  };
+
+  return (
+    <div
+      className="flex justify-center items-center gap-1 border-solid border-2 rounded-full p-1"
+      style={{
+        color: status[props.status].color,
+        borderColor: status[props.status].color,
+      }}
+    >
+      <span className="text-lg">{status[props.status].icon}</span>
+      <span className="capitalize">{props.status}</span>
+    </div>
+  );
+};
+
+const gridUserImage = (props) => (
+  <div className="flex items-center gap-2">
+    <img className="rounded-full w-10 h-10" src={props.image} alt="user" />
+    <p>{`${props.firstName} ${props.lastName}`}</p>
+  </div>
+);
+
+const gridUserAddress = (props) => (
+  <div className="flex items-center gap-2">
+    <GrLocation />
+    <span>{`${props.address.address} ${props.address.city}, ${props.address.state} ${props.address.postalCode}`}</span>
+  </div>
+);
+//* END OF JSX
+
+//* ELEMENTS
 export const colors = {
   badge: "#0DB0DD", // Battery Charged Blue
   buttonBlue: "#0DB0DD", // Battery Charged Blue
@@ -121,62 +201,45 @@ export const sidebarLinks = [
     ],
   },
 ];
+//* END OF ELEMENTS
 
+//* CONFIG
 export const earningConfig = {
-  total: "98,765.43",
-  budget: "76,543.21",
-  expense: "12,345.67",
   stats: [
     {
-      name: "Customers",
+      name: "customers",
       icon: <MdOutlineSupervisorAccount />,
       style: {
         iconColor: "#03C9D7",
         iconBg: "#E5FAFB",
         pcColor: "red-600",
       },
-      data: {
-        amount: "39,354",
-        percentage: "-4%",
-      },
     },
     {
-      name: "Products",
+      name: "products",
       icon: <BsBoxSeam />,
       style: {
         iconColor: "rgb(255, 244, 229)",
         iconBg: "rgb(254, 201, 15)",
         pcColor: "green-600",
       },
-      data: {
-        amount: "4,396",
-        percentage: "+23%",
-      },
     },
     {
-      name: "Sales",
+      name: "sales",
       icon: <MdOutlinePointOfSale />,
       style: {
         iconColor: "rgb(228, 106, 118)",
         iconBg: "rgb(255, 244, 229)",
         pcColor: "green-600",
       },
-      data: {
-        amount: "423,39",
-        percentage: "+38%",
-      },
     },
     {
-      name: "Refund",
+      name: "refund",
       icon: <RiRefund2Line />,
       style: {
         iconColor: "rgb(0, 194, 146)",
         iconBg: "rgb(235, 250, 242)",
         pcColor: "red-600",
-      },
-      data: {
-        amount: "39,354",
-        percentage: "-12%",
       },
     },
   ],
@@ -196,13 +259,6 @@ export const sparklineConfig = {
   },
   xName: "x",
   yName: "y",
-  coordinates: [
-    { x: 1, y: 2 },
-    { x: 2, y: 6 },
-    { x: 3, y: 8 },
-    { x: 4, y: 5 },
-    { x: 5, y: 10 },
-  ],
   tooltipSettings: {
     visible: true,
     // eslint-disable-next-line no-template-curly-in-string
@@ -236,115 +292,8 @@ export const barChartConfig = {
     minorTickLines: { width: 0 },
     labelFormat: "{value}",
   },
-  series: [
-    {
-      dataSource: [
-        { x: "Jan", y: 88.0 },
-        { x: "Feb", y: 99.0 },
-        { x: "Mar", y: 100.0 },
-        { x: "Apr", y: 111.1 },
-        { x: "May", y: 122.2 },
-        { x: "Jun", y: 133.3 },
-        { x: "Jul", y: 144.4 },
-        { x: "Aug", y: 155.5 },
-        { x: "Sep", y: 166.6 },
-        { x: "Oct", y: 177.7 },
-        { x: "Nov", y: 188.8 },
-        { x: "Dec", y: 199.9 },
-      ],
-      xName: "x",
-      yName: "y",
-      name: "Budget",
-      type: "StackingColumn",
-      background: "blue",
-    },
-    {
-      dataSource: [
-        { x: "Jan", y: 88.0 },
-        { x: "Feb", y: 99.0 },
-        { x: "Mar", y: 100.0 },
-        { x: "Apr", y: 111.1 },
-        { x: "May", y: 122.2 },
-        { x: "Jun", y: 133.3 },
-        { x: "Jul", y: 144.4 },
-        { x: "Aug", y: 155.5 },
-        { x: "Sep", y: 166.6 },
-        { x: "Oct", y: 177.7 },
-        { x: "Nov", y: 188.8 },
-        { x: "Dec", y: 199.9 },
-      ],
-      xName: "x",
-      yName: "y",
-      name: "Expense",
-      type: "StackingColumn",
-      background: "red",
-    },
-  ],
   tooltip: { enable: true },
   legendSettings: { background: "white" },
-};
-
-const orderImage = (props) => (
-  <div className="flex">
-    {props.productImage.map((item, index) => (
-      <img
-        key={index}
-        className="rounded-xl h-20 md:ml-3"
-        src={item}
-        alt="order-item"
-      />
-    ))}
-  </div>
-);
-
-const orderStatus = (props) => {
-  const status = {
-    pending: {
-      color: "#FFB300",
-      icon: <HiOutlineClock />,
-    },
-    shipped: {
-      color: "#52D600",
-      icon: <HiOutlineTruck />,
-    },
-    processing: {
-      color: "#A1D600",
-      icon: <MdOutlinePending />,
-    },
-    onHold: {
-      color: "#595A58",
-      icon: <HiOutlineMinusCircle />,
-    },
-    completed: {
-      color: "#00D5E8",
-      icon: <MdOutlineCheckCircleOutline />,
-    },
-    cancelled: {
-      color: "#FF0000",
-      icon: <MdOutlineCancel />,
-    },
-    refunded: {
-      color: "#B8A898",
-      icon: <RiRefund2Line />,
-    },
-    failed: {
-      color: "#FFF42B",
-      icon: <HiOutlineExclamationCircle />,
-    },
-  };
-
-  return (
-    <div
-      className="flex justify-center items-center gap-1 border-solid border-2 rounded-full p-1"
-      style={{
-        color: status[props.status].color,
-        borderColor: status[props.status].color,
-      }}
-    >
-      <span className="text-lg">{status[props.status].icon}</span>
-      <span className="capitalize">{props.status}</span>
-    </div>
-  );
 };
 
 export const ordersConfig = {
@@ -359,7 +308,7 @@ export const ordersConfig = {
       width: "250",
       textAlign: "Center",
       headerText: "Items",
-      template: orderImage,
+      template: gridOrderImage,
     },
     {
       width: "90",
@@ -371,7 +320,7 @@ export const ordersConfig = {
       width: "60",
       textAlign: "Center",
       headerText: "Status",
-      template: orderStatus,
+      template: gridOrderStatus,
     },
     {
       width: "60",
@@ -391,6 +340,48 @@ export const ordersConfig = {
     },
   ],
 };
+
+export const usersConfig = {
+  grid: [
+    {
+      width: "90",
+      textAlign: "Center",
+      headerText: "Users",
+      template: gridUserImage,
+    },
+    {
+      width: "100",
+      textAlign: "Left",
+      headerText: "Profession",
+      field: "company.title",
+    },
+    {
+      width: "110",
+      textAlign: "Left",
+      headerText: "Company",
+      field: "company.name",
+    },
+    {
+      width: "70",
+      textAlign: "Center",
+      headerText: "Birth date",
+      field: "birthDate",
+    },
+    {
+      width: "100",
+      textAlign: "Left",
+      headerText: "Email Address",
+      field: "email",
+    },
+    {
+      width: "170",
+      textAlign: "Center",
+      headerText: "Address",
+      template: gridUserAddress,
+    },
+  ],
+};
+//* END OF CONFIG
 
 // fetch("https://dummyjson.com/users")
 //   .then((res) => res.json())
