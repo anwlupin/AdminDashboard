@@ -96,7 +96,7 @@ const gridOrderStatus = (props) => {
   );
 };
 
-const gridUserImage = (props) => (
+const gridUserProfile = (props) => (
   <div className="flex items-center gap-2">
     <img className="rounded-full w-10 h-10" src={props.image} alt="user" />
     <p>{`${props.firstName} ${props.lastName}`}</p>
@@ -107,6 +107,12 @@ const gridUserAddress = (props) => (
   <div className="flex items-center gap-2">
     <GrLocation />
     <span>{`${props.address.address} ${props.address.city}, ${props.address.state} ${props.address.postalCode}`}</span>
+  </div>
+);
+
+const gridProductImage = (props) => (
+  <div className="flex justify-center">
+    <img className="rounded-xl h-20" src={props.thumbnail} alt="user" />
   </div>
 );
 //* END OF JSX
@@ -343,12 +349,14 @@ export const ordersConfig = {
 
 export const usersConfig = {
   grid: [
+    { type: "checkbox", width: "20" },
     {
       width: "90",
       textAlign: "Center",
       headerText: "Users",
-      template: gridUserImage,
+      template: gridUserProfile,
     },
+    { width: "0", textAlign: "Center", headerText: "", field: "Name" },
     {
       width: "100",
       textAlign: "Left",
@@ -368,7 +376,7 @@ export const usersConfig = {
       field: "birthDate",
     },
     {
-      width: "100",
+      width: "90",
       textAlign: "Left",
       headerText: "Email Address",
       field: "email",
@@ -378,6 +386,54 @@ export const usersConfig = {
       textAlign: "Center",
       headerText: "Address",
       template: gridUserAddress,
+    },
+  ],
+};
+
+export const productsConfig = {
+  grid: [
+    { type: "checkbox", width: "20" },
+    {
+      width: "100",
+      textAlign: "Center",
+      headerText: "Image",
+      template: gridProductImage,
+    },
+    {
+      width: "90",
+      textAlign: "Center",
+      headerText: "Product Name",
+      field: "title",
+    },
+    {
+      width: "50",
+      textAlign: "Center",
+      headerText: "Rating",
+      field: "rating",
+    },
+    {
+      width: "50",
+      textAlign: "Center",
+      headerText: "Price",
+      field: "price",
+    },
+    {
+      width: "50",
+      textAlign: "Center",
+      headerText: "Discount",
+      field: "discountPercentage",
+    },
+    {
+      width: "50",
+      textAlign: "Center",
+      headerText: "Stock",
+      field: "stock",
+    },
+    {
+      width: "90",
+      textAlign: "Center",
+      headerText: "Brand",
+      field: "brand",
     },
   ],
 };

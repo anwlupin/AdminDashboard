@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useStateContext } from "./contexts/ContextProvider";
 import { SidebarNav, ThemeButton } from "./components";
 import { Header } from "./containers";
-import { ECommerce, Orders, Users } from "./pages";
+import { ECommerce, Orders, Products, Users } from "./pages";
 
 import "./App.css";
 
@@ -38,7 +38,7 @@ const App = () => {
                 <Route path="new" element="NewUser" />
               </Route>
               <Route path="/products">
-                <Route index element="Products" />
+                <Route index element={<Products />} />
                 <Route path=":productId" element="ProductInfo" />
                 <Route path="new" element="NewProduct" />
               </Route>
