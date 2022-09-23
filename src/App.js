@@ -5,6 +5,7 @@ import { SidebarNav, ThemeButton } from "./components";
 import { Header } from "./containers";
 import {
   Calendar,
+  ColorPicker,
   Editor,
   ECommerce,
   Orders,
@@ -59,7 +60,7 @@ const App = () => {
                 <Route path="editor" element={<Editor />} />
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="todo-list" element={<ToDoList />} />
-                <Route path="color-picker" element="ColorPicker" />
+                <Route path="color-picker" element={<ColorPicker />} />
               </Route>
 
               {/* Charts */}
